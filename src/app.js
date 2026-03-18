@@ -12,8 +12,7 @@ app.use(express.json());
 
 app.use("/", attendanceRoute);
 
-const PORT = 3000;
+// ❌ REMOVE đoạn này
+// app.listen(PORT, ...);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
