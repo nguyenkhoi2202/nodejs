@@ -7,6 +7,7 @@ const attendanceRoute = require("../src/routes/attendance.route");
 
 const app = express();
 
+
 app.use(cors());
 app.use(express.json());
 
