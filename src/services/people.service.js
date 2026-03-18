@@ -40,7 +40,7 @@ class PeopleService {
     };
 
     const res = await axios.post(
-      "/sovico/api/ticket/attendance/wifi/capture",
+      "/sovico/api/ticket/attendance/wifi/capture1",
       body,
       {
         headers: {
