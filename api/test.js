@@ -1,3 +1,5 @@
+const peopleService = require("../src/services/people.service");
+
 module.exports = async (req, res) => {
     try {
         const data = await peopleService.login();
