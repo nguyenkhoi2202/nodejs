@@ -1,8 +1,29 @@
-module.exports = (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.json({
-    success: true,
-    message: "API is running. Use /api/login and /api/attendance or /login and /attendance.",
-    endpoints: ["/api/login", "/api/attendance", "/login", "/attendance"]
-  });
+const peopleService = require("../services/people.service");
+
+module.exports = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  try {
+    const data = await peopleService.login();
+
+    res.json({
+      success: true,
+      stoken: data.message,
+      raw: data
+    });
+
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+
+    res.status(500).json({
+      success: false,
+      error: err.message
+    });
+  }
 };
