@@ -8,15 +8,15 @@
   ],
   "routes": [
     {
-      "src": "/login",
-      "dest": "/api/login"
+      "src": "^/login/?$",
+      "dest": "/api/login.js"
     },
     {
-      "src": "/attendance",
-      "dest": "/api/attendance"
+      "src": "^/attendance/?$",
+      "dest": "/api/attendance.js"
     },
     {
-      "src": "/",
+      "src": "^/$",
       "dest": "/api/index.js"
     }
   ]
